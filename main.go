@@ -2,23 +2,37 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 )
 
+var gopher = []string{
+	"                        dhyysoo++++ooossyhd",
+	"                Ndyo/:#######################:+sd",
+	"      NN/:###ds/#######################/+////+/###+y#######",
+	"  Ny/:###/hy:#:+/::###::/+:#########+/:`  .:#  :+/##:oo######",
+	" h:##//:+o:#:+:  +hdy.    #+:#####++`     s####` :+###:sN +###:",
+	" ###d   /##:o   :#####      o:###//       h#s#N.  :/####+Ny####",
+	"d###sN :###s`    `sd+d:     `o###s         ://`    s#####++###/",
+	" y:##s/####s                `s###s`               `s######s:/",
+	"  Nhso#####//               +:###:o`             `o:######:",
+	"    N#######+/            `+/:+sss+o/`         ./+#########",
+	"    y########:+/:.    `#://#+N     N:+//:::::/+/###########/",
+	"    +############:/+++/:##ooodNNN dsoo+#####################",
+	"    /####################s/:::::::::::/s####################h",
+	"    :####################+o//+++s/++//oo####################s",
+	"    :######################o/  ##  ++/:#####################o",
+	"    /######################:+  ::  :/#######################+",
+	"    +#######################+//++//+########################+",
+}
+
 func main() {
 	s := strings.Join(os.Args[1:], " ")
-	d, err := ioutil.ReadFile("./gopher-ascii.txt")
+	slen := len(s)
 
-	if err != nil {
-		fmt.Printf("error: %s\n", err)
-		os.Exit(1)
-	}
-
-	fmt.Printf(" %s\n/ %s /\n %[1]s\n", strings.Repeat("~", len(s)+2), s)
-	fmt.Printf("%s%s\n", strings.Repeat(" ", len(s)/3), "###")
-	fmt.Printf("%s%s\n", strings.Repeat(" ", (len(s)/3)+2), "##")
-	fmt.Printf("%s%s\n", strings.Repeat(" ", (len(s)/3)+4), "#")
-	fmt.Print(string(d))
+	fmt.Printf(" %s\n/ %s /\n %[1]s\n", strings.Repeat("~", slen+2), s)
+	fmt.Printf("%s%s\n", strings.Repeat(" ", slen/3), "###")
+	fmt.Printf("%s%s\n", strings.Repeat(" ", (slen/3)+2), "##")
+	fmt.Printf("%s%s\n", strings.Repeat(" ", (slen/3)+4), "#")
+	fmt.Print(strings.Join(gopher, "\n"))
 }
