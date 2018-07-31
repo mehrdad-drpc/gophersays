@@ -30,6 +30,11 @@ var gopher = []string{
 
 func main() {
 	s := strings.Join(os.Args[1:], " ")
+
+	if s == "" {
+		s = "I never know what to say in these situations..."
+	}
+
 	slen := len(s)
 
 	fmt.Printf(" %s\n/ %s /\n %[1]s\n", strings.Repeat("~", slen+2), s)
