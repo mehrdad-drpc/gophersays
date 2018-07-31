@@ -2,8 +2,12 @@
 
 *gophersays* is a Go written version of the famous *cowsay* program.  
 
+```
+$ go get github.com/danielkvist/gophersays
+```
 
-> For the moment, only one line as input is printed correctly.
+For the moment, only one line as input is printed correctly.  
+Don't take it too seriously.  
 
 ```
  ~~~~~~~~~~~~~~~
@@ -31,5 +35,4 @@ d###sN :###s`    `sd+d:     `o###s         ://`    s#####++###/
     +#######################+//++//+########################+
 ```
 
-It's a simple test, so please don't take it too seriously.  
 Thanks.  
