@@ -1,3 +1,5 @@
+// Gophersays is an adaption of the cowsay command.
+// Prints a gopher in ASCII art.
 package main
 
 import (
