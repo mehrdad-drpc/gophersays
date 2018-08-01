@@ -3,19 +3,12 @@
 *gophersays* is a Go written version of the famous *cowsay* program.  
 
 ```
-$ go get github.com/danielkvist/gophersays
-```
-
-For the moment, only one line as input is printed correctly.  
-Don't take it too seriously.  
-
-```
- ~~~~~~~~~~~~~~~
-/ Hello, World! /
- ~~~~~~~~~~~~~~~
-    ###
-      ##
-        #
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/ I never know what to say in these situations... /
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               ###
+                 ##
+                   #
                         dhyysoo++++ooossyhd
                 Ndyo/:#######################:+sd
       NN/:###ds/#######################/+////+/###+y#######
@@ -35,4 +28,16 @@ d###sN :###s`    `sd+d:     `o###s         ://`    s#####++###/
     +#######################+//++//+########################+
 ```
 
+```
+$ go get github.com/danielkvist/gophersays
+$ go install github.com/danielkvist/gophersays
+```
+
+Or if you prefer Docker 👋:
+
+```
+$ docker pull danielkvist/gophersays
+```
+
+For the moment only one line as input is printed correctly 😅.  
 Thanks.  
