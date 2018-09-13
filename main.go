@@ -28,10 +28,9 @@ func main() {
 		"    /######################:+  ::  :/#######################+",
 		"    +#######################+//++//+########################+",
 	}
-
 	scream := flag.Bool("scream", false, "makes the gopher scream")
-
 	flag.Parse()
+
 	m := strings.Join(flag.Args(), " ")
 	ml := len(m)
 
@@ -48,8 +47,8 @@ func main() {
 	}
 
 	fmt.Printf(" %s\n/ %s /\n %[1]s\n", strings.Repeat("~", ml+2), m)
-	fmt.Printf("%s%s\n", strings.Repeat(" ", ml/3), "###")
-	fmt.Printf("%s%s\n", strings.Repeat(" ", (ml/3)+2), "##")
-	fmt.Printf("%s%s\n", strings.Repeat(" ", (ml/3)+4), "#")
+	for i := 0; i <= 3; i++ {
+		fmt.Printf("%s%s\n", strings.Repeat(" ", (ml/3)+(i*2)), strings.Repeat("#", 3-i))
+	}
 	fmt.Print(strings.Join(gopher, "\n"))
 }
