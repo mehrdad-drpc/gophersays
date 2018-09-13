@@ -1,14 +1,14 @@
-# gophersays
+# GOPHERSAYS
 
 *gophersays* is a Go written version of the famous *cowsay* program.  
-
+Instead of a cow, it prints a fancy gopher.  
 ```
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/ I never know what to say in these situations... /
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-               ###
-                 ##
-                   #
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/ What am I supposed to say? /
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        ###
+          ##
+            #
                         dhyysoo++++ooossyhd
                 Ndyo/:#######################:+sd
       NN/:###ds/#######################/+////+/###+y#######
@@ -28,16 +28,23 @@ d###sN :###s`    `sd+d:     `o###s         ://`    s#####++###/
     +#######################+//++//+########################+
 ```
 
+## Get  
 ```
 $ go get github.com/danielkvist/gophersays
 $ go install github.com/danielkvist/gophersays
 ```
 
-Or if you prefer Docker 👋:
-
+## Docker  
 ```
 $ docker pull danielkvist/gophersays
 ```
 
-For the moment only one line as input is printed correctly 😅.  
-Thanks.  
+## Options  
+You can use the flag *scream* to make the gopher scream:  
+```
+$ gophersays -scream
+```
+Or:
+```
+$ gophersays -scream=true
+```  
