@@ -3,8 +3,8 @@
 package main
 
 import (
+	"flag"
 	"fmt"
-	"os"
 	"strings"
 )
 
@@ -29,17 +29,27 @@ var gopher = []string{
 }
 
 func main() {
-	s := strings.Join(os.Args[1:], " ")
+	scream := flag.Bool("scream", false, "makes the gopher scream")
 
-	if s == "" {
-		s = "I never know what to say in these situations..."
+	flag.Parse()
+	m := strings.Join(flag.Args(), " ")
+	ml := len(m)
+
+	switch {
+	case ml <= 0:
+		m = "What am I supposed to say?"
+		if *scream {
+			m = strings.ToUpper(m)
+		}
+		ml = len(m)
+		break
+	case ml >= 1 && *scream:
+		m = strings.ToUpper(m)
 	}
 
-	slen := len(s)
-
-	fmt.Printf(" %s\n/ %s /\n %[1]s\n", strings.Repeat("~", slen+2), s)
-	fmt.Printf("%s%s\n", strings.Repeat(" ", slen/3), "###")
-	fmt.Printf("%s%s\n", strings.Repeat(" ", (slen/3)+2), "##")
-	fmt.Printf("%s%s\n", strings.Repeat(" ", (slen/3)+4), "#")
+	fmt.Printf(" %s\n/ %s /\n %[1]s\n", strings.Repeat("~", ml+2), m)
+	fmt.Printf("%s%s\n", strings.Repeat(" ", ml/3), "###")
+	fmt.Printf("%s%s\n", strings.Repeat(" ", (ml/3)+2), "##")
+	fmt.Printf("%s%s\n", strings.Repeat(" ", (ml/3)+4), "#")
 	fmt.Print(strings.Join(gopher, "\n"))
 }
