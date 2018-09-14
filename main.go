@@ -5,6 +5,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
+	"os"
 	"strings"
 )
 
@@ -28,6 +30,8 @@ func main() {
 		"    /######################:+  ::  :/#######################+",
 		"    +#######################+//++//+########################+",
 	}
+	g := strings.Join(gopher, "\n")
+
 	scream := flag.Bool("scream", false, "makes the gopher scream")
 	flag.Parse()
 
@@ -50,5 +54,5 @@ func main() {
 	for i := 0; i <= 3; i++ {
 		fmt.Printf("%s%s\n", strings.Repeat(" ", (ml/3)+(i*2)), strings.Repeat("#", 3-i))
 	}
-	fmt.Print(strings.Join(gopher, "\n"))
+	io.WriteString(os.Stdout, g)
 }
