@@ -39,6 +39,8 @@ func main() {
 	Gopher(&gopher, scream, msg, os.Stdout)
 }
 
+// Gopher prints a message at the specified output with an ASCII art.
+// If the scream *bool its true it prints the message in uppercase.
 func Gopher(ASCIIart *[]string, scream *bool, msg string, out io.Writer) {
 	g := strings.Join(*ASCIIart, "\n")
 	ml := len(msg)
