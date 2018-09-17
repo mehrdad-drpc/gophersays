@@ -30,29 +30,31 @@ func main() {
 		"    /######################:+  ::  :/#######################+",
 		"    +#######################+//++//+########################+",
 	}
-	g := strings.Join(gopher, "\n")
 
 	scream := flag.Bool("scream", false, "makes the gopher scream")
 	flag.Parse()
 
-	m := strings.Join(flag.Args(), " ")
-	ml := len(m)
+	msg := strings.Join(flag.Args(), " ")
 
-	switch {
-	case ml <= 0:
-		m = "What am I supposed to say?"
-		if *scream {
-			m = strings.ToUpper(m)
-		}
-		ml = len(m)
-		break
-	case ml >= 1 && *scream:
-		m = strings.ToUpper(m)
+	Gopher(&gopher, scream, msg, os.Stdout)
+}
+
+func Gopher(ASCIIart *[]string, scream *bool, msg string, out io.Writer) {
+	g := strings.Join(*ASCIIart, "\n")
+	ml := len(msg)
+
+	if ml <= 0 {
+		msg = "What am I supposed to say?"
+		ml = len(msg)
 	}
 
-	fmt.Printf(" %s\n/ %s /\n %[1]s\n", strings.Repeat("~", ml+2), m)
+	if *scream {
+		msg = strings.ToUpper(msg)
+	}
+
+	fmt.Printf(" %s\n/ %s /\n %[1]s\n", strings.Repeat("~", ml+2), msg)
 	for i := 0; i <= 3; i++ {
 		fmt.Printf("%s%s\n", strings.Repeat(" ", (ml/3)+(i*2)), strings.Repeat("#", 3-i))
 	}
-	io.WriteString(os.Stdout, g)
+	io.WriteString(out, g)
 }
